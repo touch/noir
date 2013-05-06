@@ -1,7 +1,6 @@
 (ns noir.core
   "Functions to work with partials and pages."
-  (:use hiccup.core
-        compojure.core)
+  (:use compojure.core)
   (:require [clojure.string :as string]
             [clojure.tools.macro :as macro]))
 
@@ -106,7 +105,7 @@
   (let [[fname args] (macro/name-with-attributes fname args)
         [params & body] args]
     `(defn ~fname ~params
-       (html
+       (str
         ~@body))))
 
 (defn ^{:skip-wiki true} route-arguments

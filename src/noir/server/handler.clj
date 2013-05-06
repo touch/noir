@@ -6,9 +6,7 @@
         ring.middleware.session.memory)
   (:import java.net.URLDecoder)
   (:require [compojure.route :as c-route]
-            [hiccup.middleware :as hiccup]
             [noir.core :as noir]
-            [noir.content.defaults :as defaults]
             [noir.cookies :as cookie]
             [noir.exception :as exception]
             [noir.request :as request]
@@ -121,7 +119,6 @@
   [handler opts]
   (binding [options/*options* (options/compile-options opts)]
     (-> handler
-        (hiccup/wrap-base-url (options/get :base-url))
         (wrap-base-url-routing)
         (session/wrap-noir-flash)
         (session/wrap-noir-session
@@ -142,7 +139,6 @@
           (-> (apply routes (spec-routes))
               (cookie/wrap-noir-cookies)
               (validation/wrap-noir-validation)
-              (hiccup/wrap-base-url (options/get :base-url))
               (statuses/wrap-status-pages)
               (exception/wrap-exceptions)
               (options/wrap-options opts))))

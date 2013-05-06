@@ -2,11 +2,11 @@
   "If no pages are defined that match a request, a status page is used based on the
   the HTTP status code of the response. This contains the function necessary to get
   or set these status pages."
-  (:require [noir.content.defaults :as defaults]
+  (:require 
             [ring.util.response :as ring-resp]))
 
-(def status-pages (atom {404 (defaults/not-found)
-                         500 (defaults/internal-error)}))
+(def status-pages (atom {404 "404"
+                         500 "500"}))
 
 (defn get-page
   "Gets the content to display for the given status code"

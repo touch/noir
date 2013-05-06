@@ -4,8 +4,7 @@
         clj-stacktrace.repl)
   (:require [clojure.string :as string]
             [noir.options :as options]
-            [noir.statuses :as statuses]
-            [noir.content.defaults :as defaults]))
+            [noir.statuses :as statuses]))
 
 (defn- route-fn? [k]
   (and k
@@ -58,11 +57,7 @@
       (catch Exception e
         (.printStackTrace e)
         (let [content (if (options/dev-mode?)
-                        (try
-                          (defaults/stack-trace (parse-ex e))
-                          (catch Throwable e
-                            (statuses/get-page 500)))
-                        (statuses/get-page 500))]
+                            (statuses/get-page 500))]
           {:status 500
            :headers {"Content-Type" "text/html"}
            :body content})))))
