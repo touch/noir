@@ -1,4 +1,4 @@
-(defproject org.clojars.utini/noir "1.3.1"
+(defproject org.clojars.touch/noir "1.3.1"
   :description "Noir - a clojure web framework"
   :license {:name "Eclipse Public License - v 1.0"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
