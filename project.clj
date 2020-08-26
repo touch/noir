@@ -6,7 +6,7 @@
   :codox {:exclude [noir.exception noir.content.defaults
                     noir.content.getting-started]}
   :dependencies [[org.clojure/clojure "1.4.0"]
-                 [lib-noir "0.2.0"]
+                 [lib-noir "0.9.9"]
                  [compojure "1.6.2"]
                  [bultitude "0.2.0"]
                  [ring/ring-core "1.8.1"]
