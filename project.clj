@@ -5,7 +5,7 @@
   :url "http://webnoir.org"
   :codox {:exclude [noir.exception noir.content.defaults
                     noir.content.getting-started]}
-  :dependencies [[org.clojure/clojure "1.4.0"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
                  [lib-noir "0.9.9" :exclusions [ring]]
                  [compojure "1.6.2"]
                  [bultitude "0.2.0"]
