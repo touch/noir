@@ -12,4 +12,13 @@
                  [ring/ring-core "1.8.1"]
                  [ring/ring-devel "1.8.1"]
                  [clj-stacktrace "0.2.5"]
-                 [org.clojure/tools.macro "0.1.1"]])
+                 [org.clojure/tools.macro "0.1.1"]]
+  :pom-plugins [[com.theoryinpractise/clojure-maven-plugin "1.3.23"
+                 {:extensions "true"
+                  :configuration ([:sourceDirectories [:sourceDirectory "src"]]
+                                  [:temporaryOutputDirectory "true"]
+                                  [:vmargs "-Xmx256m -XX:MaxPermSize=256m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"])
+                  :executions [:execution
+                               [:id "compile-clojure"]
+                               [:phase "compile"]
+                               [:goals [:goal "compile"]]]}]])
